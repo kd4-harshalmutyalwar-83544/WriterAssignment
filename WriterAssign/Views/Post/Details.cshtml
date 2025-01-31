@@ -1,0 +1,19 @@
+﻿@model WriterAssign.Models.Post
+
+@{
+    ViewData["Title"] = "Post Details";
+}
+
+<h2>@Model.Title</h2>
+<p><strong>Published Date:</strong> @Model.PublishedDate.ToString("yyyy-MM-dd")</p>
+
+<div>
+    <h4>Content:</h4>
+    <p>@Model.Content</p>
+</div>
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.PostId" class="btn btn-warning">Edit</a>
+    <a asp-action="Delete" asp-route-id="@Model.PostId" class="btn btn-danger">Delete</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</p>

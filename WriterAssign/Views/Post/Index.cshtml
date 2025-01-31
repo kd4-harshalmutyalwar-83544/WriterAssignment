@@ -1,0 +1,68 @@
+﻿@model IEnumerable<WriterAssign.Models.Post>
+
+@{
+    ViewData["Title"] = "Blog Posts";
+}
+
+<h2 class="mb-4">Blog Posts</h2>
+
+
+@if (TempData["insert_success"] != null)
+{
+    <div class="alert alert-success">@TempData["insert_success"]</div>
+}
+@if (TempData["update_success"] != null)
+{
+    <div class="alert alert-info">@TempData["update_success"]</div>
+}
+@if (TempData["delete_success"] != null)
+{
+    <div class="alert alert-danger">@TempData["delete_success"]</div>
+}
+
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Post</a>
+</p>
+
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Title</th>
+            <th>Content Snippet</th>
+            <th>Published Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var post in Model)
+        {
+            <tr>
+                <td>@post.Title</td>
+                <td>@(post.Content.Length > 100 ? post.Content.Substring(0, 100) + "..." : post.Content)</td>
+                <td>@post.PublishedDate.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@post.PostId" class="btn btn-sm btn-info">View</a>
+                    <a asp-action="Edit" asp-route-id="@post.PostId" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@post.PostId" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@if (ViewBag.TotalPages > 1)
+{
+    <nav>
+        <ul class="pagination">
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                    <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}
