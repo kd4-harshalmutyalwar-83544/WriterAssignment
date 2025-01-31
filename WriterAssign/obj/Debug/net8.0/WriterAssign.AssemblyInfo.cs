@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WriterAssign")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aacc2d17225fda57a351e96bd000207f33be84b1")]
 [assembly: System.Reflection.AssemblyProductAttribute("WriterAssign")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WriterAssign")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
